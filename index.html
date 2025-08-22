@@ -1,77 +1,171 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Animated Portfolio Clone</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .bounce { animation: bounce 2s infinite; }
-    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-  </style>
-</head>
-<body class="bg-black text-white font-sans" x-data="{theme:'dark'}">  <!-- NAVBAR -->  <header class="fixed top-0 inset-x-0 z-50 bg-black/70 backdrop-blur border-b border-white/10">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
-      <a href="#home" class="font-bold text-xl">MG</a>
-      <nav class="hidden md:flex gap-6 text-sm">
-        <a href="#about" class="hover:opacity-70">About</a>
-        <a href="#work" class="hover:opacity-70">Work</a>
-        <a href="#products" class="hover:opacity-70">Products</a>
-        <a href="#testimonials" class="hover:opacity-70">Testimonials</a>
-        <a href="#contact" class="hover:opacity-70">Contact</a>
-      </nav>
-    </div>
-  </header>  <!-- HERO -->  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 fade-up" x-init="$el.classList.add('visible')">
-    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">CREATIVE Nomad<br/>Designing Digital Products & Brands</h1>
-    <p class="mt-4 text-lg text-gray-300 max-w-2xl">Minimal, bold, and effective. A modern portfolio template styled after Matthis Garnier.</p>
-    <div class="mt-8 flex gap-4">
-      <button class="bg-white text-black px-5 py-3 rounded-full font-semibold hover:scale-105 transition-transform">View Work</button>
-      <button class="border border-white px-5 py-3 rounded-full hover:scale-105 transition-transform">Contact</button>
-    </div>
-    <div class="mt-16 bounce">
-      <a href="#about">↓</a>
-    </div>
-  </section>  <!-- ABOUT -->  <section id="about" class="min-h-screen flex items-center justify-center px-6 fade-up" x-intersect.once="$el.classList.add('visible')">
-    <div class="max-w-3xl text-center">
-      <h2 class="text-3xl md:text-5xl font-bold">About Me</h2>
-      <p class="mt-6 text-gray-300">Hi, I’m a designer passionate about creating brands and digital products. This is a clone-style demo — replace text & visuals with your own content.</p>
-    </div>
-  </section>  <!-- WORK -->  <section id="work" class="min-h-screen bg-white text-black flex items-center justify-center px-6 fade-up" x-intersect.once="$el.classList.add('visible')">
-    <div class="max-w-5xl w-full">
-      <h2 class="text-3xl md:text-5xl font-bold mb-8">Selected Work</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="aspect-square bg-gray-200 flex items-center justify-center hover:scale-105 transition-transform rounded">Project 1</div>
-        <div class="aspect-square bg-gray-200 flex items-center justify-center hover:scale-105 transition-transform rounded">Project 2</div>
-        <div class="aspect-square bg-gray-200 flex items-center justify-center hover:scale-105 transition-transform rounded">Project 3</div>
-      </div>
-    </div>
-  </section>  <!-- PRODUCTS -->  <section id="products" class="min-h-screen flex items-center justify-center px-6 fade-up" x-intersect.once="$el.classList.add('visible')">
-    <div class="max-w-4xl text-center">
-      <h2 class="text-3xl md:text-5xl font-bold">Products</h2>
-      <p class="mt-6 text-gray-300">Placeholder section for products or offerings. Replace with actual content later.</p>
-    </div>
-  </section>  <!-- TESTIMONIALS -->  <section id="testimonials" class="min-h-screen bg-white text-black flex items-center justify-center px-6 fade-up" x-intersect.once="$el.classList.add('visible')">
-    <div class="max-w-5xl w-full text-center">
-      <h2 class="text-3xl md:text-5xl font-bold mb-10">What People Say</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <blockquote class="p-6 border rounded-xl hover:scale-105 transition-transform">“Amazing work, sleek and modern.” — Client A</blockquote>
-        <blockquote class="p-6 border rounded-xl hover:scale-105 transition-transform">“Professional and creative.” — Client B</blockquote>
-      </div>
-    </div>
-  </section>  <!-- CONTACT -->  <section id="contact" class="min-h-screen flex items-center justify-center px-6 fade-up" x-intersect.once="$el.classList.add('visible')">
-    <div class="max-w-md w-full text-center">
-      <h2 class="text-3xl md:text-5xl font-bold">Contact</h2>
-      <form class="mt-6 grid gap-4">
-        <input type="text" placeholder="Your name" class="w-full px-4 py-3 rounded bg-gray-800 border border-gray-700" />
-        <input type="email" placeholder="Your email" class="w-full px-4 py-3 rounded bg-gray-800 border border-gray-700" />
-        <textarea placeholder="Message" rows="5" class="w-full px-4 py-3 rounded bg-gray-800 border border-gray-700"></textarea>
-        <button class="bg-white text-black px-5 py-3 rounded-full font-semibold hover:scale-105 transition-transform">Send</button>
-      </form>
-    </div>
-  </section>  <!-- FOOTER -->  <footer class="bg-black py-6 text-center text-sm text-gray-400">
-    © 2025 Your Brand — Animated Clone
-  </footer></body>
-</html>
+<!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <title>Your Portfolio</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <style> html,body{margin:0;height:100%;background:#0b0c10} canvas{display:block;width:100vw;height:100vh} </style> </head> <body> <canvas id="stage"></canvas> <script> const CONFIG = { name: "Your Name", email: "hello@example.com", title: "Crafting bold, performant web experiences.", subtitle: "Designer–developer focused on fast, accessible interfaces and meaningful motion.", projects: [ { title: "Northstar Rebrand & Website", meta: "Design & Front‑end · 2025" }, { title: "Atlas Product Marketing", meta: "Lead Designer · 2024" }, { title: "Haven App Site", meta: "Design & Code · 2023" } ] };
+// Setup
+const c = document.getElementById("stage");
+const ctx = c.getContext("2d");
+let DPR = Math.max(1, Math.min(2, window.devicePixelRatio||1));
+let W=0,H=0;
+function resize(){
+W=innerWidth; H=innerHeight;
+c.width=WDPR; c.height=HDPR; c.style.width=W+"px"; c.style.height=H+"px";
+ctx.setTransform(DPR,0,0,DPR,0,0);
+}
+addEventListener("resize", resize);
+
+// Background animation
+let t=0; const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function bg(){
+const g = ctx.createLinearGradient(0,0,W,H);
+g.addColorStop(0, hsl(${200+Math.sin(t)*10},95%,62%));
+g.addColorStop(1, hsl(${145+Math.cos(t*1.2)*12},95%,65%));
+ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+ctx.globalCompositeOperation="soft-light";
+for(let i=0;i<5;i++){
+const x=(Math.sin(t*1.7+i)*0.5+0.5)W;
+const y=(Math.cos(t1.3+i)*0.5+0.5)H;
+const r=120+Math.sin(t2+i)40;
+const grad=ctx.createRadialGradient(x,y,0,x,y,r);
+grad.addColorStop(0,"rgba(255,255,255,0.22)");
+grad.addColorStop(1,"rgba(0,0,0,0)");
+ctx.fillStyle=grad; ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI2); ctx.fill();
+}
+ctx.globalCompositeOperation="source-over";
+}
+
+// Draw text helpers
+function setFont(px, weight=400, family="Inter, system-ui"){ ctx.font=${weight} ${px}px ${family}; }
+function wrap(text, x, y, maxW, lh){
+const words=text.split(" "); let line=""; let yy=y;
+for(let i=0;i<words.length;i++){
+const test=line+words[i]+" "; if(ctx.measureText(test).width>maxW && i>0){
+ctx.fillText(line.trim(), x, yy); line=words[i]+" "; yy+=lh;
+} else line=test;
+}
+if(line) ctx.fillText(line.trim(), x, yy);
+}
+
+// Layout + draw
+function draw(){
+if(!reduced) t+=0.016;
+bg();
+
+// Vignette
+const v=ctx.createRadialGradient(W/2,H/2,Math.min(W,H)*0.2,W/2,H/2,Math.max(W,H)*0.8);
+v.addColorStop(0,"rgba(0,0,0,0)"); v.addColorStop(1,"rgba(0,0,0,0.25)");
+ctx.fillStyle=v; ctx.fillRect(0,0,W,H);
+
+const pad=Math.max(24, W0.06);
+const heroW=W-pad2;
+const centerX=pad+heroW/2;
+const titleSize=Math.max(28, Math.min(64, W0.05));
+const subSize=Math.max(14, Math.min(20, W0.018));
+
+// Brand chip
+const bx=pad, by=16, bw=36, bh=20, br=8;
+roundRect(bx,by,bw,bh,br);
+const bgrad=ctx.createLinearGradient(bx,by,bx+bw,by);
+bgrad.addColorStop(0,"#9bff9b"); bgrad.addColorStop(1,"#66ccff");
+ctx.fillStyle=bgrad; ctx.fill();
+setFont(14,800,"Syne, Inter, system-ui"); ctx.fillStyle="#0b0c10"; ctx.fillText("YN", bx+7, by+bh-5);
+
+// Title
+ctx.textAlign="center";
+setFont(titleSize,800,"Syne, Inter, system-ui"); ctx.fillStyle="#e7e8ea";
+wrap(CONFIG.title, centerX, 120, Math.min(920, heroW), titleSize*1.1);
+
+// Subtitle
+setFont(subSize,400,"Inter, system-ui"); ctx.fillStyle="#9aa0a6";
+wrap(CONFIG.subtitle, centerX, 120+titleSize1.8, Math.min(700, heroW), subSize1.45);
+
+// Buttons
+ctx.textAlign="left";
+const btns=[{label:"View projects"},{label:"Email me"}];
+const btnW = btns.map(b=>measureBtn(b.label));
+const gap=12; const total = btnW.reduce((a,b)=>a+b,0)+gap;
+let x = pad+(heroW-total)/2; const y=120+titleSize*2.4;
+btns.forEach((b,i)=>{ drawBtn(x,y,btnW[i],40,b.label,i===1); x+=btnW[i]+gap; });
+
+// Section title
+setFont(24,700,"Inter, system-ui"); ctx.fillStyle="#e7e8ea";
+ctx.fillText("Selected work", pad, y+80);
+setFont(14,400,"Inter, system-ui"); ctx.fillStyle="#9aa0a6";
+ctx.fillText("A mix of product, brand, and web builds.", pad, y+102);
+
+// Cards
+const gridY = y+120;
+const cols = W<720?1:2;
+const colW = (heroW - (cols-1)16)/cols;
+const cardH = Math.max(170, Math.min(240, colW0.56+56));
+for(let i=0;i<CONFIG.projects.length;i++){
+const col = i%cols; const row = Math.floor(i/cols);
+const cx = pad + col*(colW+16);
+const cy = gridY + row*(cardH+16);
+drawCard(cx, cy, colW, cardH, CONFIG.projects[i], i);
+}
+
+if(!reduced) requestAnimationFrame(draw);
+}
+
+function roundRect(x,y,w,h,r){
+const rr=Math.min(r,w/2,h/2);
+ctx.beginPath();
+ctx.moveTo(x+rr,y);
+ctx.arcTo(x+w,y,x+w,y+h,rr);
+ctx.arcTo(x+w,y+h,x,y+h,rr);
+ctx.arcTo(x,y+h,x,y,rr);
+ctx.arcTo(x,y,x+w,y,rr);
+ctx.closePath();
+}
+function measureBtn(text){ setFont(14,600,"Inter, system-ui"); return Math.ceil(ctx.measureText(text).width+36); }
+function drawBtn(x,y,w,h,label,ghost){
+roundRect(x,y,w,h,999);
+ctx.fillStyle = ghost? "rgba(255,255,255,0.02)" : "#111522";
+ctx.fill(); ctx.lineWidth=1; ctx.strokeStyle="rgba(255,255,255,0.1)"; ctx.stroke();
+setFont(14,600,"Inter, system-ui"); ctx.fillStyle="#e7e8ea";
+const tw=ctx.measureText(label).width; ctx.fillText(label, x+(w-tw)/2, y+h/2+5);
+}
+function drawCard(x,y,w,h,p,idx){
+roundRect(x,y,w,h,14);
+const g=ctx.createLinearGradient(x,y,x,y+h);
+g.addColorStop(0,"#151722"); g.addColorStop(1,"#11131b");
+ctx.fillStyle=g; ctx.fill();
+ctx.strokeStyle="rgba(255,255,255,0.08)"; ctx.lineWidth=1; ctx.stroke();
+
+// Media placeholder
+const mh=Math.max(100, Math.round(h0.6));
+roundRect(x+10,y+10,w-20,mh-20,10);
+const hue= 200 + (Math.sin(t0.6 + idx)*15);
+const mg=ctx.createLinearGradient(x,y,x+w,y+mh);
+mg.addColorStop(0, hsla(${hue},70%,55%,0.9));
+mg.addColorStop(1, hsla(${hue+40},70%,55%,0.9));
+ctx.fillStyle=mg; ctx.fill();
+
+setFont(18,700,"Inter, system-ui"); ctx.fillStyle="#e7e8ea";
+ctx.fillText(p.title, x+14, y+mh+26);
+setFont(14,400,"Inter, system-ui"); ctx.fillStyle="#9aa0a6";
+ctx.fillText(p.meta, x+14, y+mh+48);
+}
+
+// Start
+resize(); draw();
+
+// Simple clicks: open email or just scroll down
+c.addEventListener("mouseup", (e)=>{
+const yy = 120 + Math.max(28, Math.min(64, innerWidth0.05))2.4;
+const pad=Math.max(24, innerWidth0.06);
+const heroW=innerWidth - pad2;
+const w1=measureBtn("View projects"); const w2=measureBtn("Email me");
+const total=w1+12+w2; const x0 = pad+(heroW-total)/2;
+const isInside=(x,y,rx,ry,rw,rh)=> x>=rx && x<=rx+rw && y>=ry && y<=ry+rh;
+
+// Button 1: scroll (simulate by jumping)
+if(isInside(e.offsetX,e.offsetY, x0,yy,w1,40)){
+window.scrollTo({ top: window.innerHeight, behavior:"smooth" });
+}
+// Button 2: email
+if(isInside(e.offsetX,e.offsetY, x0+w1+12,yy,w2,40)){
+window.location.href = "mailto:"+CONFIG.email;
+}
+});
+</script>
+
+</body> </html>
